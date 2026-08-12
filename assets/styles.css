@@ -1,4 +1,4 @@
-/* CrossCurrent Games — site styles
+/* CrossCurrent Games site styles
    Palette: deep navy/purple void, warm gold + cool cyan accents, serif display type. */
 
 :root {
@@ -411,30 +411,48 @@ section:last-of-type {
   background: var(--panel);
   border: 1px solid var(--panel-border);
   border-radius: 16px;
-  padding: 28px;
+  padding: 32px 28px;
 }
 
-.contact-row {
+.contact-note {
+  margin-bottom: 1.3em;
+  font-size: 0.95rem;
+}
+
+.contact-email {
+  display: inline-block;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 3.4vw, 1.5rem);
+  color: var(--gold-bright);
+  word-break: break-word;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(227, 185, 104, 0.45);
+}
+
+.contact-email:hover {
+  color: var(--cyan-bright);
+  border-bottom-color: rgba(88, 211, 217, 0.55);
+  text-decoration: none;
+}
+
+.contact-tags {
+  list-style: none;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--panel-border);
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 26px 0 0;
+  padding: 0;
 }
 
-.contact-row:last-child {
-  border-bottom: none;
-}
-
-.contact-row .label {
+.contact-tags li {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--ink-muted);
-  font-size: 0.88rem;
-}
-
-.contact-row .value {
-  font-weight: 600;
-  text-align: right;
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  padding: 6px 14px;
 }
 
 blockquote {
