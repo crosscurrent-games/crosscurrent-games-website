@@ -379,15 +379,31 @@ section:last-of-type {
 
 /* logo divider */
 
-.brand-divider {
-  text-align: center;
-  padding: 70px 0;
+/* about split layout */
+
+.about-split {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: center;
 }
 
-.brand-divider img {
-  max-width: 480px;
-  margin: 0 auto;
+.about-copy {
+  max-width: 620px;
+}
+
+.about-copy h2 {
+  margin-bottom: 0.8em;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-visual img {
+  width: 100%;
   border-radius: 16px;
+  border: 1px solid var(--panel-border);
 }
 
 /* team */
@@ -522,6 +538,15 @@ blockquote {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 860px) {
+  .about-split {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .about-visual {
+    max-width: 420px;
+  }
+
   .feature-grid,
   .era-list {
     grid-template-columns: 1fr;
