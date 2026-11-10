@@ -7,6 +7,7 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var saveData = !!(navigator.connection && navigator.connection.saveData);
+  var smallScreen = window.matchMedia("(max-width: 700px)").matches;
 
   // ---------- Year ----------
   var year = document.getElementById("year");
@@ -69,7 +70,10 @@
 
   // ---------- Demo scene ----------
   // The first scene of the game, with its real tap areas and cards. Areas
-  // are fractions of the scene, as in the game's level data.
+  // are fractions of the scene, as in the game's level data. The smartphone
+  // moves with the footage, so like the game its area is keyed to the
+  // video's progress (current time over duration) and interpolated between
+  // keyframes.
   var ANOMALIES = [
     {
       label: "Smartphone",
@@ -77,6 +81,13 @@
       short: "Smartphones are modern electronics and did not exist in 40 AD Rome.",
       detail: "The first iPhone launched in 2007. This small device has millions of times more computing power than the guidance system used to land humans on the moon in 1969. In the era of Caligula communication moved at the speed of a horse. The Emperor used a system called the Cursus Publicus, where mounted couriers changed horses at relay stations to carry wax tablets across the empire.",
       hit: { x: 0.1738, y: 0.6748, w: 0.0788, h: 0.1475 },
+      frames: [
+        { p: 0, r: { x: 0.1738, y: 0.6748, w: 0.0788, h: 0.1475 } },
+        { p: 0.25, r: { x: 0.1766, y: 0.5969, w: 0.0834, h: 0.1441 } },
+        { p: 0.5, r: { x: 0.1747, y: 0.5903, w: 0.0834, h: 0.1524 } },
+        { p: 0.75, r: { x: 0.1775, y: 0.5903, w: 0.0843, h: 0.1508 } },
+        { p: 1, r: { x: 0.1803, y: 0.5853, w: 0.0797, h: 0.1607 } }
+      ],
       hint: { x: 0.0538, y: 0.5548, w: 0.3188, h: 0.3875 }
     },
     {
@@ -99,6 +110,7 @@
 
   var stage = document.getElementById("demo-stage");
   if (!stage) return;
+  var sceneVideo = document.getElementById("demo-video");
   var marks = document.getElementById("demo-marks");
   var clues = document.getElementById("demo-clues");
   var count = document.getElementById("demo-count");
@@ -111,6 +123,7 @@
   var hintButton = document.getElementById("demo-hint");
   var revealButton = document.getElementById("demo-reveal");
   var found = [false, false, false];
+  var foundMarks = [];
 
   ANOMALIES.forEach(function (a, i) {
     var li = document.createElement("li");
@@ -118,6 +131,56 @@
     li.querySelector("em").textContent = a.clue;
     clues.appendChild(li);
   });
+
+  // ----- Scene video: loaded only when the demo is near, never for
+  // visitors who prefer less motion or are saving data. Until it plays,
+  // the still is frame one, where every area sits at progress 0.
+  var videoOn = false;
+  function progress() {
+    if (!videoOn || !sceneVideo.duration) return 0;
+    return Math.min(1, Math.max(0, sceneVideo.currentTime / sceneVideo.duration));
+  }
+
+  if (sceneVideo && !reduceMotion && !saveData && "IntersectionObserver" in window) {
+    var started = false;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          if (!started) {
+            started = true;
+            sceneVideo.src = smallScreen ? sceneVideo.dataset.srcSmall : sceneVideo.dataset.src;
+            sceneVideo.preload = "auto";
+          }
+          var play = sceneVideo.play();
+          if (play && play.catch) play.catch(function () {});
+        } else if (started) {
+          sceneVideo.pause();
+        }
+      });
+    }, { rootMargin: "300px 0px" }).observe(stage);
+
+    sceneVideo.addEventListener("playing", function () {
+      videoOn = true;
+      sceneVideo.classList.add("playing");
+      requestAnimationFrame(follow);
+    });
+  }
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function rectAt(a, p) {
+    var f = a.frames;
+    if (!f) return a.hit;
+    if (p <= f[0].p) return f[0].r;
+    for (var k = 0; k < f.length - 1; k++) {
+      if (p <= f[k + 1].p) {
+        var t = (p - f[k].p) / (f[k + 1].p - f[k].p);
+        var r0 = f[k].r, r1 = f[k + 1].r;
+        return { x: lerp(r0.x, r1.x, t), y: lerp(r0.y, r1.y, t), w: lerp(r0.w, r1.w, t), h: lerp(r0.h, r1.h, t) };
+      }
+    }
+    return f[f.length - 1].r;
+  }
 
   function pct(v) { return (v * 100).toFixed(3) + "%"; }
 
@@ -128,12 +191,24 @@
     el.style.height = pct(r.h);
   }
 
+  // Found markers stay on their object as it moves.
+  function follow() {
+    if (!videoOn) return;
+    var p = progress();
+    foundMarks.forEach(function (m) {
+      if (m && ANOMALIES[m.i].frames) place(m.el, rectAt(ANOMALIES[m.i], p));
+    });
+    if (!sceneVideo.paused) requestAnimationFrame(follow);
+  }
+  if (sceneVideo) sceneVideo.addEventListener("play", function () { if (videoOn) requestAnimationFrame(follow); });
+
   function markFound(i) {
     found[i] = true;
     var box = document.createElement("div");
     box.className = "mark-found";
-    place(box, ANOMALIES[i].hit);
+    place(box, rectAt(ANOMALIES[i], progress()));
     marks.appendChild(box);
+    foundMarks.push({ i: i, el: box });
     var li = clues.children[i];
     li.classList.add("found");
     li.querySelector(".clue-label").textContent = ANOMALIES[i].label;
@@ -170,12 +245,14 @@
   // 44 by 44 pixels around its center, as on iOS.
   function hitTest(px, py, rect) {
     var min = 44;
+    var p = progress();
     return ANOMALIES.findIndex(function (a, i) {
       if (found[i]) return false;
-      var w = Math.max(a.hit.w * rect.width, min);
-      var h = Math.max(a.hit.h * rect.height, min);
-      var cx = (a.hit.x + a.hit.w / 2) * rect.width;
-      var cy = (a.hit.y + a.hit.h / 2) * rect.height;
+      var r = rectAt(a, p);
+      var w = Math.max(r.w * rect.width, min);
+      var h = Math.max(r.h * rect.height, min);
+      var cx = (r.x + r.w / 2) * rect.width;
+      var cy = (r.y + r.h / 2) * rect.height;
       return Math.abs(px - cx) <= w / 2 && Math.abs(py - cy) <= h / 2;
     });
   }

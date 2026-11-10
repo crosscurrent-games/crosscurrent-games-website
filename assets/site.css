@@ -202,6 +202,10 @@ p { margin: 0 0 1em; }
   background: #000;
 }
 .demo-stage img { width: 100%; height: 100%; object-fit: cover; }
+/* The scene loop plays over its own first frame, so the still shows at once
+   and the motion fades in when the video is ready. */
+.demo-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
+.demo-video.playing { opacity: 1; }
 .demo-marks { position: absolute; inset: 0; pointer-events: none; }
 .mark-found {
   position: absolute;
