@@ -210,9 +210,31 @@ p {
   background-position: center;
 }
 
+.hero-wrap {
+  width: 100%;
+}
+
 .hero-inner {
   max-width: 720px;
-  padding: 140px 24px 90px;
+  padding: 140px 0 90px;
+}
+
+/* Apple's official badge, unaltered; it only needs to line up with the
+   button beside it. */
+.app-store-badge {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.app-store-badge img {
+  height: 54px;
+  width: auto;
+}
+
+.availability-note {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  color: var(--ink-muted);
 }
 
 .hero .tagline {
@@ -595,7 +617,7 @@ blockquote {
   }
 
   .hero-inner {
-    padding: 120px 20px 60px;
+    padding: 120px 0 60px;
   }
 
   .gallery-grid {
