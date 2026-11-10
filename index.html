@@ -1,251 +1,350 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CrossCurrent Games | Trapped in Time</title>
-  <meta name="description" content="CrossCurrent Games is the studio behind Trapped in Time, a premium historical puzzle adventure where you spot the object that doesn't belong and discover the true story behind it." />
+  <title>Trapped in Time | A hidden object adventure through history</title>
+  <meta name="description" content="Trapped in Time is a hidden object adventure through real history. Find the modern objects hiding in ancient Rome, learn why they don't belong, and help Dr. Veda Cross find her way home." />
   <link rel="canonical" href="https://crosscurrentgames.com/" />
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
 
-  <!-- Open Graph / social preview -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CrossCurrent Games" />
-  <meta property="og:title" content="CrossCurrent Games | Trapped in Time" />
-  <meta property="og:description" content="An adventure through history. Find what doesn't belong, and discover why." />
+  <meta property="og:title" content="Trapped in Time | A hidden object adventure through history" />
+  <meta property="og:description" content="Find what doesn't belong in ancient Rome, and discover why. Now on the App Store." />
   <meta property="og:image" content="https://crosscurrentgames.com/assets/images/og-preview.jpg" />
   <meta property="og:url" content="https://crosscurrentgames.com/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CrossCurrent Games | Trapped in Time" />
-  <meta name="twitter:description" content="An adventure through history. Find what doesn't belong, and discover why." />
+  <meta name="twitter:title" content="Trapped in Time | A hidden object adventure through history" />
+  <meta name="twitter:description" content="Find what doesn't belong in ancient Rome, and discover why. Now on the App Store." />
   <meta name="twitter:image" content="https://crosscurrentgames.com/assets/images/og-preview.jpg" />
-  <meta name="theme-color" content="#0a0b16" />
+  <meta name="apple-itunes-app" content="app-id=6814600221" />
+  <meta name="theme-color" content="#080b16" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/media/hero.webp" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="wrap">
+  <header class="site-header" id="site-header">
+    <div class="wrap header-row">
       <a href="#top" class="brand">
-        <img src="assets/images/favicon-192.png" alt="CrossCurrent Games mark" width="32" height="32" />
-        CrossCurrent Games
+        <img src="assets/images/favicon-192.png" alt="" width="30" height="30" />
+        <span>CrossCurrent Games</span>
       </a>
-      <nav class="main-nav" id="main-nav">
-        <a href="#game">The Game</a>
-        <a href="#world">World</a>
-        <a href="#depth">Behind It</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
+      <nav class="main-nav" id="main-nav" aria-label="Main">
+        <a href="#demo">Play a Scene</a>
+        <a href="#story">Story</a>
+        <a href="#chapters">Chapters</a>
+        <a href="#companions">Companions</a>
+        <a href="#events">Events</a>
+        <a href="press.html">Press</a>
         <a href="https://apps.apple.com/app/id6814600221" class="nav-cta">Get the Game</a>
       </nav>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main id="top">
 
-    <!-- ===================== HERO ===================== -->
-    <section class="hero">
-      <div class="wrap hero-wrap">
-      <div class="hero-inner">
-        <span class="eyebrow">A CrossCurrent Games Production</span>
-        <h1>Trapped in Time</h1>
-        <p class="tagline">An adventure through history. Find what doesn't belong, and discover why.</p>
-        <p class="hero-lede">Dr. Veda Cross built a device to safely watch history unfold. During its final calibration, the device shattered, scattering fragments of the present across the past and pulling her in after them. Now she's trapped in ancient Rome, racing to find every anomaly she caused before history itself comes undone.</p>
-        <div class="btn-row">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Trapped in Time">
+      <div class="hero-media" aria-hidden="true">
+        <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/media/hero.webp">
+          <source src="assets/media/hero.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-shade"></div>
+      </div>
+      <img class="hero-veda" src="assets/media/veda.webp" alt="Dr. Veda Cross" width="900" height="1248" />
+      <div class="wrap hero-content">
+        <p class="eyebrow">Now on the App Store</p>
+        <h1 class="title-gradient">Trapped in Time</h1>
+        <p class="hero-tagline">An adventure through history. Find what doesn't belong, and discover why.</p>
+        <p class="hero-lede">A failed experiment has scattered modern objects across ancient Rome, and pulled Dr. Veda Cross in after them. Find every one before history comes undone.</p>
+        <div class="cta-row">
           <a href="https://apps.apple.com/app/id6814600221" class="app-store-badge" aria-label="Download Trapped in Time on the App Store"><img src="assets/images/app-store-badge.svg" alt="Download on the App Store" width="162" height="54" /></a>
-          <a href="#game" class="btn btn-secondary">See How It Plays</a>
+          <a href="#demo" class="btn btn-ghost">Try a scene first</a>
         </div>
         <p class="availability-note">Out now in Canada, Australia and New Zealand. Coming soon worldwide.</p>
       </div>
-      </div>
+      <a href="#demo" class="scroll-cue" aria-label="Scroll to the demo"><span></span></a>
     </section>
 
-    <!-- ===================== ABOUT ===================== -->
-    <section id="about">
+    <!-- ============ DEMO ============ -->
+    <section class="section demo-section" id="demo">
       <div class="wrap">
-        <div class="about-split">
-          <div class="about-copy">
-            <span class="eyebrow">About Us</span>
-            <h2>About CrossCurrent Games</h2>
-            <p>CrossCurrent Games is an independent studio built around a simple belief: history is one of the richest, most underused playgrounds in entertainment, and mobile games are one of the best ways to put it back in people's hands. We're a small, focused team obsessed with craft. Every scene in our flagship title is hand directed and hand approved before it ever reaches a player, using a modern production pipeline that lets a small studio produce content with the visual polish of a much larger one, without cutting corners on quality control.</p>
-            <p>Our name comes from the idea at the center of our first game: two currents, the present and the past, crossing into one another, and the discoveries that happen at that intersection.</p>
-          </div>
-          <div class="about-visual">
-            <img src="assets/images/logo.jpg" alt="CrossCurrent Games logo with gold and cyan currents converging" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== THE GAME ===================== -->
-    <section id="game" class="alt-bg">
-      <div class="wrap">
-        <div class="section-intro">
-          <span class="eyebrow">The Game</span>
-          <h2>Trapped in Time</h2>
-          <p class="tagline" style="color: var(--ink-muted); font-size:1.05rem;">An Adventure through History!</p>
-          <p>Trapped in Time is a premium mobile puzzle adventure built around a single, instantly satisfying idea: watch a beautifully illustrated historical scene, spot the one object that doesn't belong, and learn the real story behind why it's wrong. It's the calm, clever, endlessly replayable feeling of noticing something, wrapped around a time travel story with real emotional stakes.</p>
-          <p>Guided by Veda Cross, players journey through the most pivotal, dramatic moments in history: a fleet launching into the shadow of an erupting Mount Vesuvius, a legion humiliated at the Caudine Forks, a court gripped by poison and paranoia, an emperor's obsession with the arena. Every discovery repairs a little more of the timeline.</p>
+        <div class="section-head reveal">
+          <p class="eyebrow">Try it now</p>
+          <h2>Can you spot what doesn't belong?</h2>
+          <p>This is the very first scene of the game. Three things in Caligula's throne room are out of their time. Tap them.</p>
         </div>
 
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h3>One clean core loop</h3>
-            <p>Watch. Spot. Learn. Every session resolves in seconds, and every win teaches a real historical fact.</p>
+        <div class="demo reveal" id="demo-game">
+          <div class="demo-bar">
+            <div class="demo-title">
+              <strong>Palatine throne room proclamation</strong>
+              <span>Rome, 40 AD</span>
+            </div>
+            <div class="demo-status"><span id="demo-count">0</span> of 3 found</div>
           </div>
-          <div class="feature-card">
-            <h3>Museum quality art, game paced delivery</h3>
-            <p>Every scene is a fully painted historical tableau, not a stock photo and not a filter.</p>
+          <div class="demo-stage" id="demo-stage" role="group" aria-label="Scene. Tap the objects that don't belong in ancient Rome.">
+            <picture>
+              <source media="(max-width: 700px)" srcset="assets/media/demo-throne-room-sm.webp" />
+              <img src="assets/media/demo-throne-room.webp" alt="Emperor Caligula addresses his court in a golden throne room, with three modern objects hidden in the crowd" width="1920" height="1080" draggable="false" />
+            </picture>
+            <div class="demo-marks" id="demo-marks"></div>
           </div>
-          <div class="feature-card">
-            <h3>A real story, not just a level list</h3>
-            <p>Veda Cross's journey home gives every chapter a reason to matter.</p>
+          <ol class="demo-clues" id="demo-clues"></ol>
+          <div class="demo-actions">
+            <button type="button" class="btn btn-ghost btn-small" id="demo-hint">Show me a hint</button>
+            <button type="button" class="btn-link" id="demo-reveal">Reveal all three</button>
           </div>
-          <div class="feature-card">
-            <h3>A living world to come home to</h3>
-            <p>Veda's Companions, a sanctuary of adoptable animal allies, grows alongside the player's progress through history.</p>
+
+          <div class="demo-card-backdrop" id="demo-card" hidden>
+            <div class="demo-card" role="dialog" aria-modal="true" aria-labelledby="demo-card-label">
+              <p class="demo-card-tag" id="demo-card-label"></p>
+              <h3>Why this doesn't belong</h3>
+              <p class="demo-card-short" id="demo-card-short"></p>
+              <p class="demo-card-detail" id="demo-card-detail"></p>
+              <button type="button" class="btn btn-gold" id="demo-card-close">Got it</button>
+            </div>
           </div>
-          <div class="feature-card">
-            <h3>Built to respect players</h3>
-            <p>A transparent, player first economy with no loot boxes, no randomized purchases, and no artificial urgency.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Designed to scale</h3>
-            <p>The Roman Chronicles are chapter one of a much larger map of history.</p>
+
+          <div class="demo-done" id="demo-done" hidden>
+            <p class="demo-done-title">You found all three.</p>
+            <p>There are nearly 500 more waiting across 108 scenes, each with the real history behind it.</p>
+            <a href="https://apps.apple.com/app/id6814600221" class="app-store-badge" aria-label="Download Trapped in Time on the App Store"><img src="assets/images/app-store-badge.svg" alt="Download on the App Store" width="150" height="50" /></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== WORLD & STORY ===================== -->
-    <section id="world">
-      <div class="wrap">
-        <div class="section-intro">
-          <span class="eyebrow">World &amp; Story</span>
-          <h2>One World Down. History Left to Explore.</h2>
-          <p>Trapped in Time launches with <strong>the Roman Chronicles</strong>, a four act arc spanning the full sweep of Roman history:</p>
+    <!-- ============ STORY ============ -->
+    <section class="section story-section" id="story">
+      <div class="wrap story-grid">
+        <div class="story-portrait reveal">
+          <img src="assets/media/veda.webp" alt="Dr. Veda Cross in her leather jacket, with a glowing gauntlet on one arm" width="900" height="1248" loading="lazy" />
         </div>
-
-        <ul class="era-list">
-          <li><strong>The Roman Republic</strong>The early trials that forged an empire.</li>
-          <li><strong>The Early Roman Empire</strong>Ambition, expansion, and the eruption of Vesuvius.</li>
-          <li><strong>The Peak of the Roman Empire</strong>The height of imperial power, and its darkest obsessions.</li>
-          <li><strong>The Decline of the Roman Empire</strong>The slow unraveling of the world Veda thought she understood.</li>
-        </ul>
-
-        <p>Rome is only the beginning. Trapped in Time is built on a content engine designed from day one to expand across history, with future Chronicles already mapped for:</p>
-
-        <div class="roadmap-strip">
-          <span class="roadmap-chip">Han China</span>
-          <span class="roadmap-chip">Mughal India</span>
-          <span class="roadmap-chip">Edo Japan</span>
-          <span class="roadmap-chip">American Frontier</span>
-          <span class="roadmap-chip">Ancient Egypt</span>
-          <span class="roadmap-chip">Versailles, France</span>
-        </div>
-
-        <p>Every new era plugs into the same core loop, the same production pipeline, and the same story engine, turning Trapped in Time from a single game into an open map of world history still waiting to be explored.</p>
-
-        <div class="gallery-grid">
-          <figure><img src="assets/images/gallery-01.jpg" alt="Roman ship crew bracing as Mount Vesuvius erupts in the distance" loading="lazy" /></figure>
-          <figure><img src="assets/images/gallery-02.jpg" alt="A Roman fleet launching from a torch lit dockyard" loading="lazy" /></figure>
-          <figure><img src="assets/images/gallery-03.jpg" alt="A Roman villa dinner scene at Stabiae under lightning skies" loading="lazy" /></figure>
-          <figure><img src="assets/images/gallery-04.jpg" alt="Soldiers at a forge preparing for the Caudine Forks" loading="lazy" /></figure>
-          <figure><img src="assets/images/gallery-05.jpg" alt="A sunlit gate leading into the Colosseum" loading="lazy" /></figure>
-          <figure><img src="assets/images/gallery-06.jpg" alt="Emperor Commodus in his private gladiatorial armory" loading="lazy" /></figure>
-          <figure><img src="assets/images/gallery-07.jpg" alt="A dramatic poison trial scene in a Roman hall" loading="lazy" /></figure>
-          <figure><img src="assets/images/gallery-08.jpg" alt="A bustling Roman street market" loading="lazy" /></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== DEPTH BEYOND THE PUZZLE ===================== -->
-    <section id="depth" class="alt-bg">
-      <div class="wrap">
-        <div class="section-intro">
-          <span class="eyebrow">More Than a Puzzle</span>
-          <h2>Depth Beyond the Puzzle</h2>
-          <p>Every discovery in Trapped in Time feeds a deeper world. Solve scenes to earn Gold Coins and Timeshards. Unlock <strong>Veda's Companions</strong>, a growing sanctuary of adoptable animal allies, each with their own personality, wardrobe, and daily letters home. Watch your progress compound into something worth returning to every day.</p>
-          <p>We built the entire in-game economy around one rule: <strong>respect the player.</strong> That means:</p>
-        </div>
-
-        <ul class="principle-list">
-          <li><span class="mark">✦</span><span><strong>No loot boxes. No randomized purchases, ever.</strong> Every purchase shows you exactly what you're getting before you buy it.</span></li>
-          <li><span class="mark">✦</span><span><strong>No fake urgency.</strong> We don't run countdown timers or "limited time" pressure on things that are actually always available.</span></li>
-          <li><span class="mark">✦</span><span><strong>Honest pricing.</strong> Value badges and "best rate" labels are calculated from real numbers, never invented for marketing effect.</span></li>
-          <li><span class="mark">✦</span><span><strong>A free path forward, always.</strong> Every system in the game, including help for players who go on vacation, has a way to progress without spending a dollar.</span></li>
-        </ul>
-
-        <p>It's the kind of monetization discipline you'd expect from a much larger studio, built in from the very first design document.</p>
-      </div>
-    </section>
-
-    <!-- ===================== WHY NOW ===================== -->
-    <section id="why-now">
-      <div class="wrap">
-        <div class="section-intro">
-          <span class="eyebrow">Why Now</span>
-          <h2>Why Now</h2>
-          <p>Casual puzzle games are one of the largest and most durable categories in mobile, and "edutainment" hybrids that teach something real are proving to have exceptional retention, because players don't just enjoy them, they feel good about the time they spend in them. Trapped in Time sits at the intersection of three proven, growing categories: hidden object puzzles, premium narrative mobile games, and casual collection and pet care loops. All of it is anchored by a genre with almost universal appeal and almost no competitive crowding: history itself.</p>
-          <p>With a production pipeline built to generate premium, hand approved art at a fraction of traditional cost, and a content roadmap that already spans seven historical worlds, CrossCurrent Games is positioned to do something rare in mobile gaming: ship a single, coherent, expanding universe rather than a single hit.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== TEAM ===================== -->
-    <section id="team" class="alt-bg">
-      <div class="wrap">
-        <div class="section-intro">
-          <span class="eyebrow">Our Team</span>
-          <h2>Our Team</h2>
-        </div>
-        <div class="team-block">
-          <div>
-            <p>CrossCurrent Games is a small, independent studio built around a simple discipline: every scene, every system, and every line of copy gets reviewed by a human before it reaches a player. We're builders first, a tight team spanning game design, historical research, and art direction, working with a modern production pipeline that lets a studio our size ship content with the polish of a much larger one.</p>
-            <p>The Roman Chronicles are out now on iOS, and we're already at work on what comes next. If you're a player, press, or partner who wants to know more about who's behind CrossCurrent Games, reach out below. We read every email ourselves.</p>
+        <div class="story-copy reveal">
+          <p class="eyebrow">The story</p>
+          <h2>Meet Dr. Veda Cross</h2>
+          <p>Veda built a window into the past, a way to watch history unfold without ever touching it. During its final calibration the core destabilized. A rift tore open, the present began spilling into the past, and Veda was pulled in with it.</p>
+          <p>Now she is in Rome, 40 AD, surrounded by objects that should not exist yet. Every anomaly she finds and explains repairs a little more of the timeline, and brings her one step closer to home.</p>
+          <div class="comic-strip">
+            <figure>
+              <img src="assets/media/comic-1.webp" alt="Veda adjusting her time viewing device in a modern lab" width="1000" height="558" loading="lazy" />
+              <figcaption>"I thought I was just building a window into the past."</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/media/comic-2.webp" alt="A glowing projection of an ancient Roman street above the device" width="1000" height="558" loading="lazy" />
+              <figcaption>"A revolution for archaeology."</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/media/comic-7.webp" alt="Veda hiding behind a pillar in Caligula's throne room" width="1000" height="472" loading="lazy" />
+              <figcaption>"Now I'm trapped in 40 AD."</figcaption>
+            </figure>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== CONTACT ===================== -->
-    <section id="contact">
+    <!-- ============ STATS ============ -->
+    <section class="stats-band" aria-label="The game in numbers">
+      <div class="wrap stats-row">
+        <div class="stat reveal"><strong>108</strong><span>illustrated scenes</span></div>
+        <div class="stat reveal"><strong>~500</strong><span>anomalies to find</span></div>
+        <div class="stat reveal"><strong>6</strong><span>chapters of Roman history</span></div>
+        <div class="stat reveal"><strong>1</strong><span>real story behind every find</span></div>
+      </div>
+    </section>
+
+    <!-- ============ CHAPTERS ============ -->
+    <section class="section chapters-section" id="chapters">
       <div class="wrap">
-        <div class="section-intro">
-          <span class="eyebrow">Get in Touch</span>
-          <h2>Contact</h2>
-          <p>We're always happy to hear from players, press, and potential partners.</p>
+        <div class="section-head reveal">
+          <p class="eyebrow">The Roman Chronicles</p>
+          <h2>Six chapters. Six of Rome's strangest true stories.</h2>
+          <p>Every chapter follows a real event, told across six episodes and eighteen scenes.</p>
         </div>
+        <div class="chapter-grid">
+          <article class="chapter-card reveal">
+            <picture>
+              <source media="(max-width: 700px)" srcset="assets/media/chapter-caligula-sm.webp" />
+              <img src="assets/media/chapter-caligula.webp" alt="Roman legionaries charging into the surf with swords and shields" width="1400" height="783" loading="lazy" />
+            </picture>
+            <div class="chapter-body">
+              <span class="chapter-num">Chapter I</span>
+              <h3>Caligula's War on the Sea</h3>
+              <p class="chapter-place">Rome and the coast of Gaul, 40 AD</p>
+              <p>An emperor declares war on Neptune, lines his legions up on the beach, and orders them to gather seashells as the spoils of war.</p>
+            </div>
+          </article>
+          <article class="chapter-card reveal">
+            <picture>
+              <source media="(max-width: 700px)" srcset="assets/media/chapter-geese-sm.webp" />
+              <img src="assets/media/chapter-geese.webp" alt="Gallic warriors climbing a moonlit cliff by torchlight" width="1400" height="783" loading="lazy" />
+            </picture>
+            <div class="chapter-body">
+              <span class="chapter-num">Chapter II</span>
+              <h3>The Sacred Geese Save Rome</h3>
+              <p class="chapter-place">Capitoline Hill, 390 BC</p>
+              <p>Gauls scale the cliffs in the dead of night, and the sacred geese of Juno raise the alarm that saves the citadel.</p>
+            </div>
+          </article>
+          <article class="chapter-card reveal">
+            <picture>
+              <source media="(max-width: 700px)" srcset="assets/media/chapter-commodus-sm.webp" />
+              <img src="assets/media/chapter-commodus.webp" alt="Emperor Commodus leaning over his box at the Colosseum" width="1400" height="783" loading="lazy" />
+            </picture>
+            <div class="chapter-body">
+              <span class="chapter-num">Chapter III</span>
+              <h3>Commodus, Emperor in the Arena</h3>
+              <p class="chapter-place">Rome, Colosseum, around 190 AD</p>
+              <p>An emperor walks away from ruling to fight as a gladiator, then renames Rome after himself.</p>
+            </div>
+          </article>
+          <article class="chapter-card reveal">
+            <picture>
+              <source media="(max-width: 700px)" srcset="assets/media/chapter-caudine-sm.webp" />
+              <img src="assets/media/chapter-caudine.webp" alt="A long column of Roman soldiers marching into a sunlit mountain gorge" width="1400" height="783" loading="lazy" />
+            </picture>
+            <div class="chapter-body">
+              <span class="chapter-num">Chapter IV</span>
+              <h3>The Caudine Forks Humiliation</h3>
+              <p class="chapter-place">Caudium, Samnium, 321 BC</p>
+              <p>A Roman army of 40,000 marches into a mountain pass, finds both ends sealed, and is forced to crawl beneath a yoke of spears.</p>
+            </div>
+          </article>
+          <article class="chapter-card reveal">
+            <picture>
+              <source media="(max-width: 700px)" srcset="assets/media/chapter-poisoning-sm.webp" />
+              <img src="assets/media/chapter-poisoning.webp" alt="Roman matrons standing trial in a crowded hall" width="1400" height="783" loading="lazy" />
+            </picture>
+            <div class="chapter-body">
+              <span class="chapter-num">Chapter V</span>
+              <h3>The Great Matron Poisoning</h3>
+              <p class="chapter-place">Rome, 331 BC</p>
+              <p>Rome's leading men are dying of a mysterious plague, until a slave girl reveals who is really behind it.</p>
+            </div>
+          </article>
+          <article class="chapter-card reveal">
+            <picture>
+              <source media="(max-width: 700px)" srcset="assets/media/chapter-vesuvius-sm.webp" />
+              <img src="assets/media/chapter-vesuvius.webp" alt="The Roman fleet launching from a torchlit harbor under an ash filled sky" width="1400" height="783" loading="lazy" />
+            </picture>
+            <div class="chapter-body">
+              <span class="chapter-num">Chapter VI</span>
+              <h3>The Eruption of Vesuvius</h3>
+              <p class="chapter-place">Bay of Naples, 79 AD</p>
+              <p>As the mountain erupts, Pliny the Elder launches the fleet into the ash cloud to rescue the people of the coast.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <div class="contact-grid">
-          <div class="contact-card">
-            <p class="contact-note">Every inquiry reaches the same inbox, and we read each one ourselves.</p>
-            <a class="contact-email" href="mailto:developer@crosscurrentgames.com">developer@crosscurrentgames.com</a>
-            <ul class="contact-tags">
-              <li>Player Support</li>
-              <li>Press</li>
-              <li>Partnerships</li>
-              <li>Investment</li>
-            </ul>
+    <!-- ============ HOW IT PLAYS ============ -->
+    <section class="section play-section" id="how-it-plays">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">How it plays</p>
+          <h2>Find it. Learn why. Prove it.</h2>
+        </div>
+        <div class="play-grid">
+          <div class="play-step reveal">
+            <div class="device device-phone"><img src="assets/media/screen-iphone-search.webp" alt="A scene in progress on iPhone, with two of three anomalies found" width="1400" height="644" loading="lazy" /></div>
+            <h3>Find it</h3>
+            <p>Every scene hides several modern objects in plain sight. Numbered clues point the way, and hints are there when you're stuck.</p>
           </div>
-
-          <div>
-            <p style="font-size:0.92rem;">Standard boilerplate for press use:</p>
-            <blockquote>
-              CrossCurrent Games is an independent mobile game studio, creator of <em>Trapped in Time</em>, a premium historical puzzle adventure available on iOS. CrossCurrent Games is built around hand crafted, historically grounded art and player first game design. Learn more at crosscurrentgames.com.
-            </blockquote>
+          <div class="play-step reveal">
+            <div class="device device-phone"><img src="assets/media/screen-iphone-card.webp" alt="An explanation card about the smartphone found in Caligula's court" width="1400" height="644" loading="lazy" /></div>
+            <h3>Learn why</h3>
+            <p>Each find opens a card with the real history behind it, from Rome's horseback couriers to the very first eyeglasses.</p>
+          </div>
+          <div class="play-step reveal">
+            <div class="device device-phone"><img src="assets/media/screen-iphone-timerift.webp" alt="A Timerift question asking how Nero watched the games without eyeglasses" width="1400" height="644" loading="lazy" /></div>
+            <h3>Prove it</h3>
+            <p>Timerift questions test what you just learned. Miss one and a rift opens, with one more chance to seal it before the episode ends.</p>
           </div>
         </div>
+        <div class="ipad-showcase reveal">
+          <div class="device device-tablet"><img src="assets/media/screen-ipad-colosseum.webp" alt="The Colosseum scene on iPad" width="1400" height="1050" loading="lazy" /></div>
+          <div class="ipad-copy">
+            <h3>Made for every screen</h3>
+            <p>Play on iPhone, or spread out on iPad where every scene fills the display edge to edge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPANIONS ============ -->
+    <section class="section companions-section" id="companions">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Veda's Companions</p>
+          <h2>A sanctuary full of friends, waiting at home</h2>
+          <p>Adopt animal companions, each with a story of their own. Feed them, play with them, dress them up, and read the letters they leave for you.</p>
+        </div>
+        <div class="sanctuary reveal">
+          <img class="sanctuary-room" src="assets/media/sanctuary-room.webp" alt="" width="1600" height="900" loading="lazy" />
+          <ul class="companion-row">
+            <li><img src="assets/media/companion-cat.webp" alt="" width="245" height="420" loading="lazy" /><strong>Nova</strong><span>the Cosmologist</span></li>
+            <li><img src="assets/media/companion-dog.webp" alt="" width="282" height="420" loading="lazy" /><strong>Biscuit</strong><span>the Comet Chaser</span></li>
+            <li><img src="assets/media/companion-red-panda.webp" alt="" width="268" height="420" loading="lazy" /><strong>Ember</strong><span>the Dreamer</span></li>
+            <li><img src="assets/media/companion-hamster.webp" alt="" width="334" height="420" loading="lazy" /><strong>Pip</strong><span>the Tinkerer</span></li>
+            <li><img src="assets/media/companion-rabbit.webp" alt="" width="240" height="420" loading="lazy" /><strong>Clover</strong><span>the Cartographer</span></li>
+            <li><img src="assets/media/companion-fox.webp" alt="" width="305" height="420" loading="lazy" /><strong>Saffron</strong><span>the Archivist</span></li>
+            <li class="companion-major"><img src="assets/media/companion-emu.webp" alt="" width="283" height="420" loading="lazy" /><strong>Major</strong><span>the Undefeated</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVENTS ============ -->
+    <section class="event-band" id="events">
+      <picture class="event-art">
+        <img src="assets/media/event-emu-war.webp" alt="Veda watching a flock of emus race across a wheat field at sunset as soldiers follow in trucks" width="1600" height="855" loading="lazy" />
+      </picture>
+      <div class="wrap event-content reveal">
+        <p class="eyebrow">Live event</p>
+        <h2>The Great Emu War</h2>
+        <p>In 1932, Australia sent soldiers to stop an army of emus. The emus won the headlines. Play all eighteen scenes of the event and bring Major, the Undefeated, home to your sanctuary.</p>
+        <p class="event-more">More events from history's strangest corners are on the way.</p>
+      </div>
+    </section>
+
+    <!-- ============ FAIR PLAY ============ -->
+    <section class="section fair-section" id="fair-play">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Our promise</p>
+          <h2>Fair play, by design</h2>
+        </div>
+        <div class="fair-grid">
+          <div class="fair-item reveal"><h3>No loot boxes</h3><p>Every purchase shows exactly what you get before you buy it. Nothing is random.</p></div>
+          <div class="fair-item reveal"><h3>No fake urgency</h3><p>No countdown timers on things that are always available.</p></div>
+          <div class="fair-item reveal"><h3>Honest prices</h3><p>Value badges are calculated from real numbers, never invented for effect.</p></div>
+          <div class="fair-item reveal"><h3>A free path forward</h3><p>Every system in the game has a way forward without spending a dollar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta">
+      <div class="wrap final-cta-inner reveal">
+        <img src="assets/media/app-icon.webp" alt="" width="112" height="112" class="final-icon" loading="lazy" />
+        <h2>Step into history</h2>
+        <p>Free to play on iPhone and iPad.</p>
+        <a href="https://apps.apple.com/app/id6814600221" class="app-store-badge" aria-label="Download Trapped in Time on the App Store"><img src="assets/images/app-store-badge.svg" alt="Download on the App Store" width="180" height="60" /></a>
+        <p class="availability-note">Out now in Canada, Australia and New Zealand. Coming soon worldwide.</p>
       </div>
     </section>
 
@@ -253,28 +352,19 @@
 
   <footer class="site-footer">
     <div class="wrap footer-row">
-      <p class="copyright">© <span id="year">2026</span> CrossCurrent Games. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="#contact">Contact and Support</a>
+      <div class="footer-brand">
+        <img src="assets/images/favicon-192.png" alt="" width="28" height="28" />
+        <span>CrossCurrent Games</span>
       </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="press.html">Press</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:developer@crosscurrentgames.com">developer@crosscurrentgames.com</a>
+      </nav>
+      <p class="copyright">© <span id="year">2026</span> CrossCurrent Games Inc. Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    var toggle = document.getElementById("nav-toggle");
-    var nav = document.getElementById("main-nav");
-    toggle.addEventListener("click", function () {
-      var isOpen = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
-    nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        nav.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  </script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
