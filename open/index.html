@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trapped in Time | CrossCurrent Games</title>
+  <meta name="description" content="Spot what doesn't belong in history. Trapped in Time is a hidden object adventure through real history for iPhone and iPad." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Trapped in Time" />
+  <meta property="og:description" content="Spot what doesn't belong in history." />
+  <meta property="og:image" content="https://crosscurrentgames.com/assets/images/og-preview.jpg" />
+  <meta name="apple-itunes-app" content="app-id=6814600221" />
+  <meta name="theme-color" content="#080b16" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    /* Where links into the game land when the game is not installed, or when
+       an in-app browser (TikTok, Instagram) opened the link instead of iOS.
+       With the game installed, iOS opens it directly and this page never shows. */
+    .open-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 20px;
+      background: linear-gradient(rgba(8, 11, 22, 0.72), rgba(8, 11, 22, 0.92)), url("../assets/images/hero.jpg") center / cover no-repeat;
+      text-align: center;
+    }
+    .open-card { width: 100%; max-width: 520px; }
+    .open-card img.open-icon { display: block; margin: 0 auto; width: 88px; height: 88px; border-radius: 20px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45); }
+    .open-card h1 { margin: 18px 0 10px; }
+    .open-card p { color: var(--ink-mute); margin: 0 0 26px; }
+    .open-actions { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .open-note { font-size: 0.88rem; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <main class="open-page">
+    <div class="open-card">
+      <img class="open-icon" src="../assets/images/favicon-512.png" alt="" width="88" height="88" />
+      <h1>Trapped in Time</h1>
+      <p>Spot what doesn't belong in history. A hidden object adventure through real history, for iPhone and iPad.</p>
+      <div class="open-actions">
+        <a id="store-link" href="https://apps.apple.com/app/id6814600221" class="app-store-badge" aria-label="Download Trapped in Time on the App Store"><img src="../assets/images/app-store-badge.svg" alt="Download on the App Store" width="180" height="60" /></a>
+        <a id="open-link" href="trappedintime://home" class="btn btn-ghost">Open the game</a>
+        <p class="open-note">Already playing? Open the game to go straight there.</p>
+      </div>
+    </div>
+  </main>
+  <script>
+    // Carries the link's destination into the game, and its campaign into the
+    // App Store link so App Store Connect can count installs from it.
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var path = window.location.pathname.replace(/^\/open\/?/, "").replace(/\/+$/, "");
+      var to = params.get("to") || path || "home";
+      if (!/^[a-z0-9_\/-]{1,80}$/i.test(to)) to = "home";
+      document.getElementById("open-link").href = "trappedintime://" + to;
+      var ref = params.get("ref");
+      if (ref && /^[A-Za-z0-9_.-]{1,40}$/.test(ref)) {
+        document.getElementById("store-link").href =
+          "https://apps.apple.com/app/apple-store/id6814600221?pt=129323694&ct=" + encodeURIComponent(ref) + "&mt=8";
+      }
+    })();
+  </script>
+</body>
+</html>

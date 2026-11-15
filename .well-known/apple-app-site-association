@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["RDX65K8Z9X.com.crosscurrentgames.trappedintime"],
+        "components": [
+          { "/": "/open", "comment": "Opens Trapped in Time on its Home menu." },
+          { "/": "/open/*", "comment": "Opens a place in the game: /open/sanctuary, /open/store/shards, /open/events and so on." }
+        ]
+      }
+    ]
+  }
+}

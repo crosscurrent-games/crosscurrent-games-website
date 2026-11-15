@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found | CrossCurrent Games</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
+  <script>
+    // Links into the game (/open/sanctuary, /open/store/shards) have no page
+    // of their own: with the game installed iOS opens it directly, and
+    // otherwise they land here. Send them to the /open page, keeping the
+    // destination and the campaign.
+    (function () {
+      var match = window.location.pathname.match(/^\/open\/(.+?)\/?$/);
+      if (!match) return;
+      var params = new URLSearchParams(window.location.search);
+      params.set("to", match[1]);
+      window.location.replace("/open/?" + params.toString());
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <style>
+    .missing { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 48px 20px; }
+    .missing p { color: var(--ink-mute); margin: 10px 0 24px; }
+  </style>
+</head>
+<body>
+  <main class="missing">
+    <div>
+      <h1>This page slipped out of time</h1>
+      <p>It may have moved, or never existed.</p>
+      <a href="/" class="btn btn-gold">Back to CrossCurrent Games</a>
+    </div>
+  </main>
+</body>
+</html>
